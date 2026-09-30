@@ -114,7 +114,7 @@ myBizManager/
 
 ### Prerequisites
 * **Node.js** (v18+)
-* **Python** (v3.10+)
+* **Python** (v3.11+)
 * **MongoDB** (Local instance or MongoDB Atlas URI)
 
 ---
