@@ -1,4 +1,5 @@
 services:
+  # 1. Node.js Express Backend API
   - type: web
     name: mybizmanager-backend
     runtime: node
@@ -18,3 +19,21 @@ services:
         sync: false
       - key: CLIENT_URL
         sync: false
+      - key: FASTAPI_URL
+        fromService:
+          type: web
+          name: mybizmanager-ai
+          property: host
+
+  # 2. Python FastAPI AI & ML Engine
+  - type: web
+    name: mybizmanager-ai
+    runtime: python
+    rootDir: ai_final_fastapi
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: DB_NAME
+        value: business_agent
