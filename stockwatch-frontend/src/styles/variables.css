@@ -1,0 +1,63 @@
+:root {
+  /* ==========================================================================
+     French National Flag Theme (Bleu #002654, Blanc #FFFFFF, Rouge #CE1126)
+     with warm Golden Cogwheel accent (#E5A823) from the official logo
+     ========================================================================== */
+
+  /* Deep French Navy Backgrounds */
+  --bg: #000c1c;
+  --bg-soft: #001530;
+  --bg-darker: #000814;
+
+  /* Translucent French Navy Glass Surfaces */
+  --panel: #001b3d;
+  --panel-raised: #002654;
+  --panel-glass: rgba(0, 27, 61, 0.75);
+  --panel-glass-raised: rgba(0, 38, 84, 0.85);
+
+  /* French Crisp Borders & Glows */
+  --border: rgba(255, 255, 255, 0.12);
+  --border-soft: rgba(255, 255, 255, 0.06);
+  --border-strong: rgba(255, 255, 255, 0.24);
+  --border-glow: rgba(0, 85, 164, 0.4);
+
+  /* Primary French Carmine Red (#CE1126) & Royal Blue (#0055A4) Accents */
+  --accent: #ce1126;
+  --accent-hover: #e61c34;
+  --accent-dim: rgba(206, 17, 38, 0.18);
+  --accent-glow: rgba(206, 17, 38, 0.35);
+  --accent-gradient: linear-gradient(135deg, #ce1126 0%, #e61c34 100%);
+  --accent-gradient-hover: linear-gradient(135deg, #e61c34 0%, #ff2b44 100%);
+
+  /* French Tricolour Palette */
+  --french-blue: #002654;
+  --french-blue-bright: #0055a4;
+  --french-white: #ffffff;
+  --french-red: #ce1126;
+
+  /* Logo Golden Cogwheel Accent (#E5A823) */
+  --gold: #e5a823;
+  --gold-dim: rgba(229, 168, 35, 0.18);
+  --gold-glow: rgba(229, 168, 35, 0.32);
+
+  /* Clean White Pill Button */
+  --pearl-btn-bg: #ffffff;
+  --pearl-btn-text: #002654;
+  --pearl-btn-hover: #f1f5f9;
+
+  /* Aliased for components referencing --amber */
+  --amber: #e5a823;
+  --amber-dim: rgba(229, 168, 35, 0.18);
+  --amber-glow: rgba(229, 168, 35, 0.3);
+
+  /* Status Colors */
+  --green: #10b981;
+  --green-dim: rgba(16, 185, 129, 0.18);
+  --red: #ce1126;
+  --red-dim: rgba(206, 17, 38, 0.18);
+
+  /* High-Contrast Crisp Typography */
+  --text: #ffffff;
+  --text-mid: #cbd5e1;
+  --text-dim: #94a3b8;
+}

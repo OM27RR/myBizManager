@@ -1,0 +1,254 @@
+/* ==========================================================================
+   Suppliers Directory View
+   ========================================================================== */
+
+.suppliers-page {
+  animation: fadeIn 0.25s ease;
+  width: 100%;
+}
+
+.btn-add-supplier {
+  padding: 10px 22px;
+  font-size: 13.5px;
+  font-weight: 600;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ce1126 0%, #e61c34 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 16px rgba(206, 17, 38, 0.4);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-add-supplier:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(206, 17, 38, 0.6);
+}
+
+/* Suppliers Enterprise Table Container */
+.suppliers-table-card {
+  background: rgba(0, 27, 61, 0.75);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: visible;
+  box-shadow: 0 14px 35px rgba(0, 8, 20, 0.45);
+  backdrop-filter: blur(16px);
+  width: 100%;
+}
+
+.suppliers-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.suppliers-table th {
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-dim);
+  font-weight: 700;
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0, 16, 38, 0.95);
+  white-space: nowrap;
+}
+
+.suppliers-table td {
+  padding: 12px 10px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+  transition: background 0.15s ease;
+  overflow: hidden;
+}
+
+.suppliers-table tr:last-child td {
+  border-bottom: none;
+}
+
+.suppliers-table tr:hover td {
+  background: rgba(0, 48, 107, 0.35);
+}
+
+/* Supplier Company Info Cell */
+.supplier-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.supplier-avatar-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: rgba(0, 16, 38, 0.95);
+  border: 1px solid rgba(229, 168, 35, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--gold);
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.supplier-title-wrap {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: visible;
+}
+
+.supplier-name-txt {
+  font-weight: 600;
+  font-size: 13.5px;
+  color: var(--text);
+  line-height: 1.3;
+  white-space: normal;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: visible;
+}
+
+.supplier-verified-badge {
+  font-size: 10px;
+  color: #10b981;
+  font-family: 'JetBrains Mono', monospace;
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+/* Other Cell Elements */
+.supplier-contact-txt {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+  white-space: normal;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: visible;
+}
+
+.supplier-email-link {
+  color: var(--text-mid);
+  font-size: 11.5px;
+  text-decoration: none;
+  display: block;
+  white-space: normal;
+  word-break: break-all;
+  line-height: 1.35;
+  transition: color 0.15s ease;
+}
+
+.supplier-email-link:hover {
+  color: #60a5fa;
+  text-decoration: underline;
+}
+
+.supplier-phone-txt {
+  color: var(--text-mid);
+  font-size: 11.5px;
+  font-family: 'JetBrains Mono', monospace;
+  white-space: nowrap;
+  display: block;
+}
+
+.supplier-mono-txt {
+  color: var(--text-mid);
+  font-size: 13px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.supplier-reliability-pill {
+  font-size: 13px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.supplier-dim-txt {
+  color: var(--text-dim);
+  font-size: 12.5px;
+}
+
+/* Items Sold Badge Wrap: Shows ALL items, wraps gracefully without horizontal table overflow */
+.supplier-items-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+  max-width: 100%;
+}
+
+.supplier-item-badge {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--text-mid);
+  background: rgba(0, 27, 61, 0.85);
+  border: 1px solid var(--border);
+  padding: 3px 7px;
+  border-radius: 6px;
+  line-height: 1.25;
+  word-break: break-word;
+  max-width: 100%;
+  white-space: normal;
+  display: inline-block;
+  transition: all 0.15s ease;
+}
+
+.supplier-item-badge:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+  background: rgba(0, 38, 84, 0.9);
+}
+
+/* Three-dots Action Menu: Identical to Inventory tab */
+.supplier-actions-cell {
+  text-align: center !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.supplier-actions-cell .action-menu-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.supplier-actions-cell .action-menu-dots {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  line-height: 1;
+}
+
+.supplier-actions-cell .action-menu-dots:hover,
+.supplier-actions-cell .action-menu-dots.active {
+  color: var(--text);
+  background: var(--panel-raised);
+}
+
+.suppliers-empty {
+  text-align: center;
+  padding: 36px 20px !important;
+  color: var(--text-dim);
+}

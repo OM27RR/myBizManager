@@ -1,0 +1,1142 @@
+/* ==========================================================================
+   VaultEdge Dashboard Architecture & Styles (Gradient Twilight Theme)
+   ========================================================================== */
+
+/* Page Shell & Ambient Lighting */
+.vaultedge-page {
+  animation: fadeIn 0.3s ease;
+  position: relative;
+  width: 100%;
+}
+
+/* Ambient backlight glow in top corner matching reference */
+.vaultedge-page::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -60px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 85, 164, 0.25) 0%, rgba(0, 38, 84, 0.18) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ambient warm dusk sunset glow in bottom-left corner matching reference */
+.vaultedge-page::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: -80px;
+  width: 540px;
+  height: 540px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(206, 17, 38, 0.2) 0%, rgba(206, 17, 38, 0.08) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 1. Header Bar */
+.vaultedge-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.vaultedge-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.vaultedge-brand-mark {
+  width: 32px;
+  height: 32px;
+  background: var(--accent-gradient);
+  clip-path: polygon(0 0, 100% 0, 50% 50%, 100% 100%, 0 100%, 50% 50%);
+  opacity: 0.95;
+  box-shadow: 0 0 16px var(--accent-glow);
+}
+
+.vaultedge-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+.vaultedge-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.capsule-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 27, 61, 0.7);
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  padding: 9px 18px;
+  font-size: 13px;
+  color: var(--text-mid);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-family: 'Inter', sans-serif;
+  backdrop-filter: blur(12px);
+}
+
+.capsule-pill:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+  background: var(--panel-raised);
+}
+
+.capsule-pill select {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font: inherit;
+  outline: none;
+  cursor: pointer;
+}
+
+.header-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(0, 27, 61, 0.7);
+  border: 1px solid var(--border);
+  color: var(--text-mid);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-size: 14px;
+  backdrop-filter: blur(12px);
+}
+
+.header-icon-btn:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+  background: var(--panel-raised);
+}
+
+/* 2. Top Analytics Grid (Orders + Stock) */
+.vaultedge-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .vaultedge-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card A: Orders (Deep Electric Indigo Gradient) */
+.card-orders {
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 45%, #4338ca 100%);
+  border-radius: 24px;
+  padding: 24px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 16px 40px rgba(49, 46, 129, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  min-height: 380px;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+
+.card-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-head h3 {
+  font-family: 'Sora', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.card-head-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.orders-sim-tag,
+.stock-sim-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  padding: 3px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.sim-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: simPulse 1.4s ease-in-out infinite;
+}
+
+.sim-pulse-dot.violet {
+  background: #a855f7;
+  box-shadow: 0 0 8px #a855f7;
+}
+
+@keyframes simPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.75); }
+}
+
+.orders-sync-pill {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  padding: 3px 10px;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+}
+
+.btn-trigger-intake {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  border-radius: 9999px;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 10px rgba(16, 185, 129, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-trigger-intake:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.55);
+  background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+}
+
+.card-head-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  transition: all 0.15s ease;
+}
+
+.card-head-btn:hover {
+  background: rgba(255, 255, 255, 0.28);
+  transform: scale(1.05);
+}
+
+.orders-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  align-items: flex-end;
+  margin-top: 8px;
+}
+
+.metric-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+.metric-col .metric-num {
+  font-family: 'Sora', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 4px;
+  transition: all 0.3s ease;
+}
+
+.metric-col .metric-lbl {
+  font-size: 11px;
+  opacity: 0.85;
+  font-weight: 500;
+  margin-bottom: 10px;
+  white-space: nowrap;
+}
+
+.metric-bar {
+  width: 100%;
+  border-radius: 6px 6px 0 0;
+  background: rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: height 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.metric-bar.pattern-1 {
+  background: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15) 3px, rgba(255, 255, 255, 0.3) 3px, rgba(255, 255, 255, 0.3) 6px);
+}
+
+.metric-bar.pattern-2 {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+.metric-bar.pattern-3 {
+  background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2) 2px, rgba(255, 255, 255, 0.4) 2px, rgba(255, 255, 255, 0.4) 5px);
+}
+
+.metric-bar.solid {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+}
+
+/* Orders Activity Bar at bottom */
+.orders-pipeline-footer {
+  margin-top: 18px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(8px);
+}
+
+.pipeline-flow-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pipeline-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+  animation: simPulse 1.2s infinite;
+  flex-shrink: 0;
+}
+
+.pipeline-txt b {
+  color: #ffffff;
+}
+
+/* Card B: Stock */
+.card-stock {
+  background: linear-gradient(135deg, #001736 0%, #002654 40%, #004080 70%, #ce1126 100%);
+  border-radius: 24px;
+  padding: 24px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 16px 40px rgba(0, 38, 84, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  position: relative;
+  overflow: hidden;
+  min-height: 380px;
+}
+
+.stock-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+
+.stock-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.94;
+}
+
+.legend-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  background: #ffffff;
+}
+
+.legend-dot.in-stock { background: #ffffff; }
+.legend-dot.out-stock { background: rgba(255, 255, 255, 0.4); }
+.legend-dot.low-stock { background: #fde047; }
+.legend-dot.dead-stock { background: #000000; }
+
+.stock-chart-wrap {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stock-chart-badge {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.95);
+  color: #4338ca;
+  padding: 4px 14px;
+  border-radius: 9999px;
+  font-family: 'Sora', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, color 0.25s ease;
+}
+
+.stock-chart-badge.bump-active {
+  transform: scale(1.22);
+  color: #059669;
+  background: #ffffff;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.8), 0 0 35px rgba(16, 185, 129, 0.4);
+}
+
+/* ==========================================================================
+   Inbound Conveyor Belt Simulation Component Styles
+   ========================================================================== */
+
+.conveyor-simulation-wrap {
+  background: rgba(0, 16, 38, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 10px 14px;
+  margin-top: 10px;
+  position: relative;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 6px 18px rgba(0, 8, 20, 0.4);
+}
+
+.conveyor-meta-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 10.5px;
+}
+
+.conveyor-line-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.conveyor-sub-status {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.conveyor-live-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+  border-radius: 9999px;
+  padding: 2px 8px;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.pulse-green-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: simPulse 1s infinite;
+}
+
+.conveyor-stage {
+  position: relative;
+  height: 48px;
+  background: #080d19;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 3px 12px rgba(0, 0, 0, 0.7);
+}
+
+.conveyor-roller {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 14px;
+  background: repeating-linear-gradient(180deg, #334155 0px, #334155 3px, #1e293b 3px, #1e293b 6px);
+  z-index: 4;
+}
+
+.conveyor-roller.left {
+  left: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.conveyor-belt {
+  position: absolute;
+  inset: 0 44px 0 14px;
+  overflow: hidden;
+}
+
+.conveyor-tread-stripes {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 0px,
+    rgba(255, 255, 255, 0.04) 10px,
+    rgba(0, 0, 0, 0.45) 10px,
+    rgba(0, 0, 0, 0.45) 20px
+  );
+  animation: conveyorTreadMove 0.8s linear infinite;
+}
+
+@keyframes conveyorTreadMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(20px); }
+}
+
+/* Guard Rails */
+.conveyor-rail-top,
+.conveyor-rail-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 3;
+}
+
+.conveyor-rail-top {
+  top: 0;
+  background: linear-gradient(90deg, #3b82f6, #06b6d4, #10b981);
+}
+
+.conveyor-rail-bottom {
+  bottom: 0;
+  background: linear-gradient(90deg, #3b82f6, #06b6d4, #10b981);
+}
+
+/* Optical Scanner Gate in Center */
+.conveyor-scanner-gate {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 26px;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.scanner-arch-top {
+  width: 22px;
+  height: 6px;
+  background: #00f0ff;
+  border-radius: 2px 2px 0 0;
+  box-shadow: 0 0 12px #00f0ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scanner-eye {
+  font-size: 7px;
+  color: #000c1c;
+  line-height: 1;
+}
+
+.scanner-beam {
+  width: 2px;
+  height: 100%;
+  background: #00f0ff;
+  opacity: 0.65;
+  box-shadow: 0 0 10px #00f0ff, 0 0 18px #00f0ff;
+  transition: all 0.2s ease;
+}
+
+.conveyor-scanner-gate.laser-scanning .scanner-beam {
+  width: 5px;
+  background: #10b981;
+  box-shadow: 0 0 18px #10b981, 0 0 30px #10b981;
+  opacity: 1;
+}
+
+.conveyor-scanner-gate.laser-scanning .scanner-arch-top {
+  background: #10b981;
+  box-shadow: 0 0 16px #10b981;
+}
+
+/* Intake Chute on the Right */
+.conveyor-intake-chute {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 44px;
+  background: linear-gradient(-90deg, rgba(206, 17, 38, 0.75) 0%, rgba(0, 16, 38, 0.85) 100%);
+  z-index: 8;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.1;
+  box-shadow: inset 0 0 12px rgba(206, 17, 38, 0.5);
+}
+
+.chute-icon {
+  font-size: 11px;
+  margin-bottom: 2px;
+}
+
+/* The Moving Parcel on the Conveyor */
+.conveyor-parcel-box {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  transition: left 0.05s linear;
+}
+
+.parcel-inner {
+  background: linear-gradient(135deg, #b45309 0%, #78350f 100%);
+  border: 1px solid #f59e0b;
+  border-radius: 6px;
+  padding: 3px 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.55);
+}
+
+.parcel-icon {
+  font-size: 12px;
+}
+
+.parcel-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.parcel-title {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  max-width: 95px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.parcel-tag {
+  font-size: 8.5px;
+  font-weight: 800;
+  color: #fde047;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.parcel-scan-tag {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #10b981;
+  color: #ffffff;
+  font-size: 7.5px;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 4px;
+  white-space: nowrap;
+  box-shadow: 0 0 8px #10b981;
+  animation: popScan 0.25s ease;
+}
+
+@keyframes popScan {
+  0% { transform: translateX(-50%) scale(0.6); opacity: 0; }
+  100% { transform: translateX(-50%) scale(1); opacity: 1; }
+}
+
+.arrival-floating-toast {
+  position: absolute;
+  right: 18px;
+  top: -8px;
+  background: #10b981;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 9px;
+  border-radius: 9999px;
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.9);
+  z-index: 20;
+  animation: floatUpFade 1.3s ease forwards;
+}
+
+@keyframes floatUpFade {
+  0% { opacity: 0; transform: translateY(8px) scale(0.85); }
+  25% { opacity: 1; transform: translateY(-4px) scale(1.05); }
+  100% { opacity: 0; transform: translateY(-22px) scale(0.95); }
+}
+
+/* 3. Capsule Filter & Controls Bar */
+.vaultedge-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.capsule-search-box {
+  flex: 1;
+  min-width: 220px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.capsule-search-box .search-glyph {
+  position: absolute;
+  left: 18px;
+  font-size: 14px;
+  color: var(--text-dim);
+  pointer-events: none;
+}
+
+.capsule-input {
+  width: 100%;
+  background: rgba(0, 27, 61, 0.75);
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  padding: 12px 20px 12px 46px;
+  color: var(--text);
+  font-size: 13.5px;
+  outline: none;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(14px);
+}
+
+.capsule-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.capsule-filter-select {
+  background: rgba(0, 27, 61, 0.75);
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  padding: 12px 22px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(14px);
+}
+
+.capsule-filter-select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.capsule-btn-icon {
+  background: rgba(0, 27, 61, 0.75);
+  border: 1px solid var(--border);
+  color: var(--text-mid);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(14px);
+}
+
+.capsule-btn-icon:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+  background: var(--panel-raised);
+}
+
+.capsule-btn-add {
+  background: var(--accent-gradient);
+  color: #ffffff;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 6px 20px var(--accent-glow);
+  transition: all 0.15s ease;
+}
+
+.capsule-btn-add:hover {
+  background: var(--accent-gradient-hover);
+  transform: scale(1.05);
+}
+
+/* 4. VaultEdge Table Styling */
+.vaultedge-table-container {
+  background: rgba(0, 27, 61, 0.75);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(20px);
+}
+
+.vaultedge-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.vaultedge-table th {
+  text-align: left;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  font-weight: 700;
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0, 16, 38, 0.85);
+}
+
+.vaultedge-table td {
+  padding: 18px 22px;
+  font-size: 13.5px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+  transition: background 0.15s ease;
+}
+
+.vaultedge-table tr:last-child td {
+  border-bottom: none;
+}
+
+.vaultedge-table tr:hover td {
+  background: rgba(0, 48, 107, 0.45);
+}
+
+/* Rounded circular checkbox */
+.round-checkbox {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  transition: all 0.15s ease;
+}
+
+.round-checkbox.checked {
+  background: var(--accent-gradient);
+  border-color: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.product-row-flex {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.product-thumb-box {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.product-thumb-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 4px;
+}
+
+.product-name-txt {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.product-sku-txt {
+  font-size: 11px;
+  color: var(--text-dim);
+  font-family: 'JetBrains Mono', monospace;
+  margin-top: 3px;
+}
+
+.action-menu-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-menu-dots {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  line-height: 1;
+}
+
+.action-menu-dots:hover,
+.action-menu-dots.active {
+  color: var(--text);
+  background: var(--panel-raised);
+}
+
+.action-dropdown {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  margin-top: 4px;
+  min-width: 140px;
+  background: rgba(0, 20, 48, 0.95);
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.65), 0 4px 12px rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  backdrop-filter: blur(20px);
+  animation: dropdownFadeIn 0.12s ease-out;
+}
+
+.action-dropdown.drop-up {
+  top: auto;
+  bottom: 100%;
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.action-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-mid);
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+}
+
+.action-dropdown-item svg {
+  flex-shrink: 0;
+}
+
+.action-dropdown-item.edit:hover {
+  background: var(--panel-raised);
+  color: #fff;
+}
+
+.action-dropdown-item.delete {
+  color: var(--red);
+}
+
+.action-dropdown-item.delete:hover {
+  background: var(--red-dim);
+  color: #fca5a5;
+}
+
+/* Text-only Product Cell */
+.product-pure-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+/* All Suppliers Stack */
+.supplier-names-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.supplier-name-entry {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-mid);
+  line-height: 1.35;
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.supplier-num-prefix {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #38bdf8;
+  flex-shrink: 0;
+}
+
+.supplier-name-val {
+  color: var(--text);
+  word-break: break-word;
+}
+
+/* Previous Order Cell */
+.prev-order-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.prev-order-supplier {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.prev-order-supply {
+  font-size: 11.5px;
+  color: var(--text-dim);
+  font-family: 'JetBrains Mono', monospace;
+}

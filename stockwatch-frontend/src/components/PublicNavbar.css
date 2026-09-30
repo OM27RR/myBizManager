@@ -1,0 +1,144 @@
+/* French Flag Colorway Navbar (Bleu #002654, Blanc #FFFFFF, Rouge #CE1126) */
+.public-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 56px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  background: rgba(0, 18, 42, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 100;
+  box-shadow: 0 4px 30px rgba(0, 10, 24, 0.8), 0 1px 0 rgba(206, 17, 38, 0.2);
+}
+
+.public-nav .brand {
+  padding: 0;
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  font-size: 19px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  transition: opacity 0.2s ease;
+}
+
+.public-nav .brand:hover {
+  opacity: 0.92;
+}
+
+/* French Tricolour Mini Brand Jewel */
+.brand-tricolour {
+  display: inline-flex;
+  width: 15px;
+  height: 12px;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
+}
+
+.brand-tricolour .stripe-blue {
+  flex: 1;
+  background-color: #002654;
+}
+
+.brand-tricolour .stripe-white {
+  flex: 1;
+  background-color: #ffffff;
+}
+
+.brand-tricolour .stripe-red {
+  flex: 1;
+  background-color: #ce1126;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links .link {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.nav-links .link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.nav-links .link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #002654, #ffffff, #ce1126);
+  transition: width 0.25s ease;
+}
+
+.nav-links .link:hover::after {
+  width: 100%;
+}
+
+.nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-cta .btn-ghost {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.nav-cta .btn-ghost:hover {
+  background: rgba(0, 38, 84, 0.4);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 16px rgba(0, 38, 84, 0.5);
+}
+
+.nav-cta .btn-primary {
+  background: linear-gradient(135deg, #ce1126 0%, #e61c34 100%);
+  color: #ffffff;
+  padding: 8px 22px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(206, 17, 38, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.nav-cta .btn-primary:hover {
+  background: linear-gradient(135deg, #e61c34 0%, #ff2b44 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 28px rgba(206, 17, 38, 0.7);
+}
+
+@media (max-width: 860px) {
+  .public-nav {
+    padding: 16px 20px;
+  }
+  .nav-links {
+    display: none;
+  }
+}

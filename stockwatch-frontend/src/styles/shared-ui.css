@@ -1,0 +1,144 @@
+/* Ticket-stub "days left" indicator */
+.ticket-stub {
+  width: 92px;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.16) 0%, rgba(217, 70, 239, 0.12) 100%);
+  border-right: 2px dashed rgba(165, 180, 252, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  position: relative;
+}
+.ticket-stub .days-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 30px;
+  font-weight: 700;
+  color: #a5b4fc;
+  line-height: 1;
+}
+.ticket-stub .days-label {
+  font-size: 9px;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 6px;
+  text-align: center;
+}
+.ticket-stub::before,
+.ticket-stub::after {
+  content: '';
+  width: 14px;
+  height: 14px;
+  background: var(--bg);
+  border-radius: 50%;
+  position: absolute;
+  right: -8px;
+}
+.ticket-stub::before {
+  top: -8px;
+}
+.ticket-stub::after {
+  bottom: -8px;
+}
+
+.item-name {
+  font-family: 'Sora', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+}
+.item-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 3px;
+}
+
+.risk-tag {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 9px;
+  border-radius: 6px;
+  background: var(--red-dim);
+  color: var(--red);
+  white-space: nowrap;
+}
+
+.recommendation {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text-mid);
+  background: rgba(28, 34, 92, 0.55);
+  border-left: 2px solid var(--accent);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 12px 0 14px;
+}
+.recommendation b {
+  color: var(--text);
+}
+
+.supplier-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.supplier-chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-mid);
+  background: rgba(14, 18, 54, 0.7);
+  border: 1px solid var(--border);
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+.supplier-chip.picked {
+  border-color: var(--green);
+  color: var(--green);
+  background: var(--green-dim);
+}
+
+/* ============ Form fields ============ */
+.field {
+  margin-bottom: 16px;
+}
+.field label {
+  display: block;
+  font-size: 12px;
+  color: var(--text-mid);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  background: rgba(14, 18, 54, 0.75);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 11px 13px;
+  color: var(--text);
+  font-size: 13.5px;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.15s ease;
+  backdrop-filter: blur(10px);
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--text-dim);
+}
+.field select {
+  cursor: pointer;
+}
