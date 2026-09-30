@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: mybizmanager-backend
+    runtime: node
+    rootDir: backend-node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5050
+      - key: DB_NAME
+        value: business_agent
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGO_URI
+        sync: false
+      - key: CLIENT_URL
+        sync: false
